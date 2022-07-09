@@ -1,4 +1,4 @@
-FROM casjaysdev/alpine:latest as ddnsbase
+FROM casjaysdevdocker/alpine:latest as ddnsbase
 LABEL author="CasjaysDev" \
   email="<docker-admin@casjaysdev.com>" \
   version="1.0.0" \
@@ -14,12 +14,12 @@ ARG BUILD_DATE="$(date +'%Y-%m-%d %H:%M')"
 LABEL \
   org.label-schema.name="ddns" \
   org.label-schema.description="My Dynamic DNS server" \
-  org.label-schema.url="https://github.com/casjaysdev/ddns" \
-  org.label-schema.vcs-url="https://github.com/casjaysdev/ddns" \
+  org.label-schema.url="https://hub.docker.com/r/casjaysdevdocker/ddns" \
+  org.label-schema.vcs-url="https://github.com/casjaysdevdocker/ddns" \
   org.label-schema.build-date=$BUILD_DATE \
   org.label-schema.version=$BUILD_DATE \
   org.label-schema.vcs-ref=$BUILD_DATE \
-  org.label-schema.license="MIT" \
+  org.label-schema.license="WTFPL" \
   org.label-schema.vcs-type="Git" \
   org.label-schema.schema-version="1.0" \
   org.label-schema.vendor="CasjaysDev" \
