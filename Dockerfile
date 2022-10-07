@@ -9,7 +9,7 @@ RUN rm -Rf /var/cache/apk/* /etc/named* /etc/bind* /etc/dhcpd* /etc/radvd* /etc/
 RUN ln -sf /bin/bash /bin/ash
 
 FROM ddnsbase
-ARG BUILD_DATE="$(date +'%Y-%m-%d %H:%M')" 
+ARG BUILD_DATE="$(date +'%Y-%m-%d %H:%M')"
 
 LABEL \
   org.label-schema.name="ddns" \
@@ -23,7 +23,7 @@ LABEL \
   org.label-schema.vcs-type="Git" \
   org.label-schema.schema-version="1.0" \
   org.label-schema.vendor="CasjaysDev" \
-  maintainer="CasjaysDev <docker-admin@casjaysdev.com>" 
+  maintainer="CasjaysDev <docker-admin@casjaysdev.com>"
 
 ENV HOSTNAME ddns
 EXPOSE 53 53/udp 67 67/udp 69 69/udp 80 546 546/udp 8053 8053/udp 9050 9050/udp
@@ -33,5 +33,5 @@ COPY ./bin/entrypoint.sh /usr/local/bin/entrypoint-ddns.sh
 
 VOLUME ["/data", "/config"]
 
-HEALTHCHECK CMD ["/usr/local/bin/entrypoint-ddns.sh","--health"]
+HEALTHCHECK --interval=15s --timeout=3s CMD ["/usr/local/bin/entrypoint-ddns.sh","--health"]
 ENTRYPOINT ["/usr/local/bin/entrypoint-ddns.sh"]
