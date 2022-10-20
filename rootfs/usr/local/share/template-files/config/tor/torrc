@@ -10,7 +10,7 @@ SOCKSPolicy accept *
 RunAsDaemon 0
 DataDirectory /var/lib/tor
 ControlPort 9051
-Log notice stderr
+Log error stderr
 #HashedControlPassword 16:kfhkajdsfhkjadhfiuhfhdjcahsf
 
 ############### dnsforwarder
