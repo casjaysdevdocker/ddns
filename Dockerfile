@@ -1,4 +1,4 @@
-FROM casjaysdevdocker/nginx:latest AS build
+FROM casjaysdevdocker/alpine:latest AS build
 
 ARG ALPINE_VERSION="v3.16"
 
@@ -6,9 +6,9 @@ ARG DEFAULT_DATA_DIR="/usr/local/share/template-files/data" \
   DEFAULT_CONF_DIR="/usr/local/share/template-files/config" \
   DEFAULT_TEMPLATE_DIR="/usr/local/share/template-files/defaults"
 
-ARG PACK_LIST="dhcp-server-vanilla radvd bind tftp-hpa tor torsocks"
+ARG PACK_LIST="bash"
 
-ENV LANG=en_US.utf8 \
+ENV LANG=en_US.UTF-8 \
   ENV=ENV=~/.bashrc \
   TZ="America/New_York" \
   SHELL="/bin/sh" \
@@ -25,11 +25,9 @@ RUN set -ex; \
   echo "http://dl-cdn.alpinelinux.org/alpine/${ALPINE_VERSION}/community" >>"/etc/apk/repositories"; \
   if [ "${ALPINE_VERSION}" = "edge" ]; then echo "http://dl-cdn.alpinelinux.org/alpine/${ALPINE_VERSION}/testing" >>"/etc/apk/repositories" ; fi ; \
   apk update --update-cache && apk add --no-cache ${PACK_LIST} && \
-  if [ -f "/bin/ash" ]; then ln -sf /bin/bash /bin/ash ; fi && \
-  cp -Rf "${DEFAULT_CONF_DIR}/." "/etc/"
+  echo
 
 RUN echo 'Running cleanup' ; \
-  rm -Rf /etc/named* /etc/bind* /etc/dhcpd* /etc/radvd* /etc/tor* /bin/ash; \
   rm -Rf /usr/share/doc/* /usr/share/info/* /tmp/* /var/tmp/* ; \
   rm -Rf /usr/local/bin/.gitkeep /usr/local/bin/.gitkeep /config /data /var/cache/apk/* ; \
   rm -rf /lib/systemd/system/multi-user.target.wants/* ; \
@@ -45,14 +43,14 @@ FROM scratch
 
 ARG \
   SERVICE_PORT="80" \
-  EXPOSE_PORTS="53/tcp 53/udp 67/tcp 67/udp 69/tcp 69/udp 80/tcp 546/tcp 546/udp 8053/tcp 8053/udp 9050/tcp 9050/udp" \
+  EXPOSE_PORTS="80" \
   PHP_SERVER="ddns" \
   NODE_VERSION="system" \
   NODE_MANAGER="system" \
   BUILD_VERSION="latest" \
   LICENSE="MIT" \
   IMAGE_NAME="ddns" \
-  BUILD_DATE="Thu Oct 20 07:09:33 PM EDT 2022" \
+  BUILD_DATE="Sun Nov 13 12:16:06 PM EST 2022" \
   TIMEZONE="America/New_York"
 
 LABEL maintainer="CasjaysDev <docker-admin@casjaysdev.com>" \
@@ -70,9 +68,10 @@ LABEL maintainer="CasjaysDev <docker-admin@casjaysdev.com>" \
   org.opencontainers.image.vcs-url="https://github.com/casjaysdevdocker/${IMAGE_NAME}" \
   org.opencontainers.image.url.source="https://github.com/casjaysdevdocker/${IMAGE_NAME}" \
   org.opencontainers.image.documentation="https://hub.docker.com/r/casjaysdevdocker/${IMAGE_NAME}" \
-  org.opencontainers.image.description="Containerized version of ${IMAGE_NAME}"
+  org.opencontainers.image.description="Containerized version of ${IMAGE_NAME}" \
+  com.github.containers.toolbox="false"
 
-ENV LANG=en_US.utf8 \
+ENV LANG=en_US.UTF-8 \
   ENV=~/.bashrc \
   SHELL="/bin/bash" \
   PORT="${SERVICE_PORT}" \
@@ -95,3 +94,4 @@ EXPOSE $EXPOSE_PORTS
 #CMD [ "" ]
 ENTRYPOINT [ "tini", "-p", "SIGTERM", "--", "/usr/local/bin/entrypoint.sh" ]
 HEALTHCHECK --start-period=1m --interval=2m --timeout=3s CMD [ "/usr/local/bin/entrypoint.sh", "healthcheck" ]
+
