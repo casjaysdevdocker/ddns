@@ -8,13 +8,13 @@
   <meta name="Keywords" content="Casjay, CasjaysDev, Jason M. Hempstead, Website, About Me">
   <meta name="Description" content="Created By Casjays Developments">
   <meta name="generator" content="CasjaysDev">
-  <link rel="shortcut icon" href="https://static.casjay.net/favicon.ico" />
-  <link rel="stylesheet" href="https://static.casjay.net/default-css/github-ribbon.css" />
+  <link rel="shortcut icon" href="https://casjaysdev-sites.github.io/static/favicon.ico" />
+  <link rel="stylesheet" href="https://casjaysdev-sites.github.io/static/default-css/github-ribbon.css" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/darkly/bootstrap.min.css" integrity="sha384-Bo21yfmmZuXwcN/9vKrA5jPUMhr7znVBBeLxT9MA4r2BchhusfJ6+n8TLGUcRAtL" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="https:///static.casjay.net/default-css/casjaysdev.css">
   <script src="htps://static.casjay.net/default-js/errorpages/isup.js" async defer></script>
-  <script src="https://static.casjay.net/default-js/errorpages/homepage.js" async defer></script>
-  <script src="https://static.casjay.net/default-js/errorpages/loaddomain.js" async defer></script>
+  <script src="https://casjaysdev-sites.github.io/static/default-js/errorpages/homepage.js" async defer></script>
+  <script src="https://casjaysdev-sites.github.io/static/default-js/errorpages/loaddomain.js" async defer></script>
   <script src="https://cdn.jsdelivr.net/npm/@widgetbot/crate@3" async defer></script>
   <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" async defer></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" async defer></script>
