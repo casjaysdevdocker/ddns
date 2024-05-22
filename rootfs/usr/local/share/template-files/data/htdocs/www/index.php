@@ -12,7 +12,7 @@
   <link rel="stylesheet" href="https://casjaysdev-sites.github.io/static/default-css/github-ribbon.css" />
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.0/darkly/bootstrap.min.css" integrity="sha384-Bo21yfmmZuXwcN/9vKrA5jPUMhr7znVBBeLxT9MA4r2BchhusfJ6+n8TLGUcRAtL" crossorigin="anonymous">
   <link rel="stylesheet" type="text/css" href="https:///static.casjay.pro/default-css/casjaysdev.css">
-  <script src="htps://static.casjay.pro/default-js/errorpages/isup.js" async defer></script>
+  <script src="https://static.casjay.pro/default-js/errorpages/isup.js" async defer></script>
   <script src="https://casjaysdev-sites.github.io/static/default-js/errorpages/homepage.js" async defer></script>
   <script src="https://casjaysdev-sites.github.io/static/default-js/errorpages/loaddomain.js" async defer></script>
   <script src="https://cdn.jsdelivr.net/npm/@widgetbot/crate@3" async defer></script>
